@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random-Password</title>
+    <style>
+        body {
+            background-color: #ddd;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 150px;
+        }
+
+        input {
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <div class="form">
+        <input type="number" placeholder="Enter Number">
+        <p></p>
+    </div>
+
+
+    <script>
+        let input = document.querySelector('input');
+        let chars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ",",".","!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R","S","T","U","V","W","X","Y","Z"];
+        let show = document.querySelector("p");
+
+
+        input.addEventListener("input", (e) => {
+            let value = input.value;
+            let password = "";
+            for (let i = 0; i < value; i++) {
+                let randomNumber = Math.floor(Math.random() * chars.length);
+                password += chars.slice(randomNumber, randomNumber + 1);
+            }
+            show.innerHTML = password;
+        });
+    </script>
+</body>
+
+</html>
